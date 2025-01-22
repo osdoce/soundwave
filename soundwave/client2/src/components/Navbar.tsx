@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
 
-    <ul className="nav nav-tabs">
+    <ul className="nav nav-tabs" >
       <li className="nav-item">
         <Link to='/'>Krazy Kanban Board</Link>
       </li>
