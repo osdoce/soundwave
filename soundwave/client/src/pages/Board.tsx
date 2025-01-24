@@ -62,7 +62,7 @@ const Board = () => {
       !loginCheck ? (
         <div className='login-notice'>
           <h1>
-            Login to create & view tickets
+            Sign in to organize your trips and itineraries
           </h1>
         </div>  
       ) : (
