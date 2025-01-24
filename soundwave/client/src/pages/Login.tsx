@@ -31,11 +31,11 @@ const Login = () => {
 
     
   
-    <div className='center form-signin'>
-      <form onSubmit={handleSubmit}>
+    <div className='center form-signin mt-5'>
+      <form onSubmit={handleSubmit} style={{ textAlign: "center" }}>
         <img className="mb-4" src="../src/assets/img/dora.png" alt="" width="72" height="57" /> 
 
-        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 className="h3 mb-3 fw-normal" style={{ textAlign:"center"}}>Please sign in</h1>
 
       <div className="form-floating">
           <input
@@ -57,6 +57,7 @@ const Login = () => {
             value={loginData.password || ''}
             onChange={handleChange}
             className='form-control'
+            placeholder='password'
             id='floatingPassword'
           />
           <label htmlFor='floatingPassword'>Password</label>
