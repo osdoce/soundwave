@@ -1,4 +1,3 @@
-
 \c trip_planner_db;
 
 INSERT INTO users (name, email, password)
