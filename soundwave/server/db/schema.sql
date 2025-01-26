@@ -1,4 +1,11 @@
--- Eliminar la base de datos si existe
+-- DROP DATABASE
+DROP DATABASE IF EXISTS kanban_db;
+
+-- CREATE DATABASE
+CREATE DATABASE kanban_db;
+
+
+/* -- Eliminar la base de datos si existe
 DROP DATABASE IF EXISTS trip_planner_db;
 
 -- Crear la base de datos
@@ -40,3 +47,4 @@ CREATE TABLE activities (
     cost DECIMAL(10, 2),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+ */

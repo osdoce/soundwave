@@ -1,11 +1,13 @@
 import weatherAPI from '../api/weatherAPI';
+import { retrieveTickets } from '../api/ticketAPI'
 import Busqueda from './Busqueda';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Weather = () => {
 
     const [cuidadBuscada, setCiudadBuscada] = useState("");
     const [weather, setWeather] = useState(null);
+    const [tickets, setTickets] = useState(null);
 
     const buscarCiudad = () => {
         const fetchData =  async () => {
@@ -16,10 +18,20 @@ const Weather = () => {
         };
         fetchData();
     }
+    useEffect(()=>{
+        const obtenerTickets = async () => {
+            console.log("Entre a buscarTickets");
+            const ticketResponseJSON = await retrieveTickets();
+            console.log(ticketResponseJSON)
+            setTickets(ticketResponseJSON);
+        }
+        obtenerTickets()
+    },[]) 
 
-    if (weather) {
+    if (weather && tickets) {
         return (
             <>
+            {tickets[0].name}
                 <div className="text-center">
                 <Busqueda cuidadBusc={cuidadBuscada} onChange={setCiudadBuscada} />
                 <br />
