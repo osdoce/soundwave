@@ -1,11 +1,9 @@
-import Auth from '../utils/auth';
-
 const weatherAPI = async (cityName: string) => {
   try {
     const response = await fetch(
       '/weather/',
         {
-        method: 'GET',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           //Authorization: `Bearer ${Auth.getToken()}`
@@ -26,4 +24,4 @@ const weatherAPI = async (cityName: string) => {
   }
 };
 
-export { weatherAPI };
+export default weatherAPI;
