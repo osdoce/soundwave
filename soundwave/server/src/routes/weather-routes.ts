@@ -4,7 +4,7 @@ const router = Router();
 import WeatherService from '../controllers/weatherService.js';
 
 // TODO: GET Request with city name to retrieve weather data
-router.get('/', async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response) => {
     console.log("llegué al post");
     console.log(req.body);
     const { cityName } = req.body;

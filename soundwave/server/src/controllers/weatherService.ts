@@ -35,7 +35,7 @@ class WeatherService {
 
   // TODO: Create fetchLocationData method
   private async fetchLocationData(query: string) {
-    const queryUrl = this.baseURL + query + `&appid=` + this.apiKey + '&units=imperial';
+    const queryUrl = this.baseURL + query + `&appid=` + this.apiKey + '&units=metric';
     console.log(queryUrl);
     const response = await fetch(queryUrl, {
       method: 'GET',
@@ -73,7 +73,7 @@ class WeatherService {
   // TODO: Create buildWeatherQuery method
   private buildWeatherQuery(coordinates: Coordinates): string {
     const { lat, lon } = coordinates;
-    return this.buildGeocodeQuery() + 'lat=' + lat + '&lon=' + lon + '&units=imperial&appid=' + this.apiKey;  
+    return this.buildGeocodeQuery() + 'lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + this.apiKey;  
   }
   // TODO: Create fetchAndDestructureLocationData method
   // private async fetchAndDestructureLocationData() {}

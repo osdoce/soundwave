@@ -24,4 +24,5 @@ const weatherAPI = async (cityName: string) => {
   }
 };
 
+
 export default weatherAPI;
