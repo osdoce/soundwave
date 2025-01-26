@@ -1,59 +1,53 @@
-import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
-import bcrypt from 'bcrypt';
+import { DataTypes, Model } from 'sequelize';
+import { sequelize } from '../db/connection';
 
-interface UserAttributes {
+// Definición de la interfaz de usuario
+export interface UserAttributes {
   id: number;
-  username: string;
+  name: string;
+  email: string;
   password: string;
+  created_at: Date;
 }
 
-interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
-
-export class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
+// Definición del modelo de Sequelize
+export class User extends Model<UserAttributes> implements UserAttributes {
   public id!: number;
-  public username!: string;
+  public name!: string;
+  public email!: string;
   public password!: string;
-
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
-
-  // Hash the password before saving the user
-  public async setPassword(password: string) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(password, saltRounds);
-  }
+  public created_at!: Date;
 }
 
-export function UserFactory(sequelize: Sequelize): typeof User {
-  User.init(
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-      },
-      username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+// Inicialización del modelo en Sequelize
+User.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
-    {
-      tableName: 'users',
-      sequelize,
-      hooks: {
-        beforeCreate: async (user: User) => {
-          await user.setPassword(user.password);
-        },
-        beforeUpdate: async (user: User) => {
-          await user.setPassword(user.password);
-        },
-      }
-    }
-  );
-
-  return User;
-}
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+    },
+  },
+  {
+    sequelize,
+    tableName: 'users',
+    timestamps: false,
+  }
+);
