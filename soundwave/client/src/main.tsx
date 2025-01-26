@@ -1,9 +1,10 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
+//import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App.tsx';
+import Weather from './pages/Weather.tsx';
 import Board from './pages/Board.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 import EditTicket from './pages/EditTicket.tsx';
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />
-      }
+      },
+       {
+        path: '/clima',
+        element: <Weather />
+      }     
     ]
   }
 ])

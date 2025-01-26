@@ -5,11 +5,11 @@ import Auth from '../utils/auth';
 const retrieveTickets = async () => {
   try {
     const response = await fetch(
-      '/api/tickets/',
+      '/tickets/',
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${Auth.getToken()}`
+         //Authorization: `Bearer ${Auth.getToken()}`
         }
       }
     );
