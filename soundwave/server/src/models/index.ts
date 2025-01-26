@@ -1,32 +1,24 @@
-import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
-
-// Cargar variables de entorno
 dotenv.config();
 
-// Crear la instancia de Sequelize
-export const sequelize = new Sequelize(
-  process.env.DB_NAME || 'trip_planner_db',
-  process.env.DB_USER || 'postgres',
-  process.env.DB_PASSWORD || '',
-  {
-    host: process.env.DB_HOST || 'localhost',
-    dialect: 'postgres',
-    logging: false, // Desactivar logs en la consola
-  }
-);
+import { Sequelize } from 'sequelize';
+import { UserFactory } from './user.js';
+import { TicketFactory } from './ticket.js';
 
-// Importar modelos
-import { User } from './user';
-import { Trip } from './trip';
-import { Activity } from './activity';
+const sequelize = process.env.DB_URL
+  ? new Sequelize(process.env.DB_URL)
+  : new Sequelize(process.env.DB_NAME || '', process.env.DB_USER || '', process.env.DB_PASSWORD, {
+      host: 'localhost',
+      dialect: 'postgres',
+      dialectOptions: {
+        decimalNumbers: true,
+      },
+    });
 
-// Asociaciones entre modelos
-User.hasMany(Trip, { foreignKey: 'user_id', as: 'trips' });
-Trip.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+const User = UserFactory(sequelize);
+const Ticket = TicketFactory(sequelize);
 
-Trip.hasMany(Activity, { foreignKey: 'trip_id', as: 'activities' });
-Activity.belongsTo(Trip, { foreignKey: 'trip_id', as: 'trip' });
+User.hasMany(Ticket, { foreignKey: 'assignedUserId' });
+Ticket.belongsTo(User, { foreignKey: 'assignedUserId', as: 'assignedUser'});
 
-// Exportar los modelos y la conexión
-export { User, Trip, Activity };
+export { sequelize, User, Ticket };
