@@ -18,7 +18,7 @@ const Weather = () => {
         };
         fetchData();
     }
-    useEffect(()=>{
+/*     useEffect(()=>{
         const obtenerTickets = async () => {
             console.log("Entre a buscarTickets");
             const ticketResponseJSON = await retrieveTickets();
@@ -27,11 +27,11 @@ const Weather = () => {
         }
         obtenerTickets()
     },[]) 
-
-    if (weather && tickets) {
+ */
+    if (weather) {
         return (
             <>
-            {tickets[0].name}
+            
                 <div className="text-center">
                 <Busqueda cuidadBusc={cuidadBuscada} onChange={setCiudadBuscada} />
                 <br />

@@ -24,7 +24,17 @@ export default defineConfig({
                 target: 'http://localhost:3001',
                 changeOrigin: true,
                 secure: false,
-              },
+            },
+            '/trips': {
+                target: 'http://localhost:3001',
+                changeOrigin: true,
+                secure: false,
+            },
+            '/activities': {
+                target: 'http://localhost:3001',
+                changeOrigin: true,
+                secure: false,
+            },
         },
     },
 });
