@@ -1,8 +1,15 @@
--- DROP DATABASE
-DROP DATABASE IF EXISTS kanban_db;
+-- Eliminar la base de datos si existe
+DROP DATABASE IF EXISTS trip_planner_db;
+-- Crear la base de datos
+CREATE DATABASE trip_planner_db;
 
--- CREATE DATABASE
-CREATE DATABASE kanban_db;
+
+
+-- -- DROP DATABASE
+-- DROP DATABASE IF EXISTS kanban_db;
+
+-- -- CREATE DATABASE
+-- CREATE DATABASE kanban_db;
 
 
 /* -- Eliminar la base de datos si existe
