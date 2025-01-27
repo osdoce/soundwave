@@ -3,7 +3,8 @@ import authRoutes from './auth-routes.js';
 import apiRoutes from './api/index.js';
 import weatherRoutes from './weather-routes.js'
 import { authenticateToken } from '../middleware/auth.js';
-import { ticketRouter } from './api/ticket-routes.js';
+import { activityRouter } from './api/activity-routes.js';
+import { tripRouter } from './api/trip-routes.js';
 
 const router = Router();
 
@@ -13,6 +14,7 @@ router.use('/auth', authRoutes);
 router.use('/api', authenticateToken, apiRoutes); 
 //add the weather api
 router.use('/weather', weatherRoutes);
-router.use('/tickets', ticketRouter);
+router.use('/activities', activityRouter);
+router.use('/trips', tripRouter);
 
 export default router;

@@ -3,7 +3,8 @@ dotenv.config();
 
 import { Sequelize } from 'sequelize';
 import { UserFactory } from './user.js';
-import { TicketFactory } from './ticket.js';
+import { ActivityFactory } from './activities.js';
+import { TripFactory } from './trips.js';
 
 const sequelize = process.env.DB_URL
   ? new Sequelize(process.env.DB_URL)
@@ -16,9 +17,18 @@ const sequelize = process.env.DB_URL
     });
 
 const User = UserFactory(sequelize);
-const Ticket = TicketFactory(sequelize);
+const Trip = TripFactory(sequelize);
+const Activity = ActivityFactory(sequelize);
 
-User.hasMany(Ticket, { foreignKey: 'assignedUserId' });
-Ticket.belongsTo(User, { foreignKey: 'assignedUserId', as: 'assignedUser'});
 
-export { sequelize, User, Ticket };
+// User.hasMany(Ticket, { foreignKey: 'assignedUserId' });
+// Ticket.belongsTo(User, { foreignKey: 'assignedUserId', as: 'assignedUser'});
+
+User.hasMany(Trip, {foreignKey: 'userId'} );
+Trip.belongsTo(User, { foreignKey: 'userId', as: 'tripuser'});
+
+Trip.hasMany(Activity, {foreignKey: 'tripId'});
+Activity.belongsTo(Trip, {foreignKey: 'tripId', as: 'tripactivity'})
+
+
+export { sequelize, User, Trip };
