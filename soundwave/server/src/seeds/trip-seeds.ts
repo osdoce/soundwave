@@ -23,5 +23,7 @@ export const seedTrips = async () => {
         endDate: new Date('2025-01-20'),
         budget: 3000.00,
       },
+
+      
   ]);
 };
