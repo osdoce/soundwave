@@ -4,7 +4,7 @@ class AuthService {
   getProfile() {
     // TODO: return the decoded token
     
-    // Get the token from the current object or class
+    // Get the token from the current class
     const token = this.getToken(); 
     // Decode the JWT token using the jwtDecode function
     // and type the decoded data as JwtPayload
@@ -15,6 +15,8 @@ class AuthService {
 
   loggedIn() {
     // TODO: return a value that indicates if the user is logged in
+
+
     // Get the token from the current object or class
     const token = this.getToken();
     // Check if the retrieved token is explicitly 'undefined'
