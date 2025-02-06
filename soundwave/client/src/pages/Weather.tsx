@@ -4,8 +4,19 @@ import Busqueda from "./Busqueda";
 import { useState } from "react";
 
 const Weather = () => {
+
+  interface Weather {
+    city: string;
+    date: string;
+    icon: string;
+    iconDescription: string;
+    tempF: string;
+    windSpeed: string;
+    humidity: string;
+}
+
   const [cuidadBuscada, setCiudadBuscada] = useState("");
-  const [weather, setWeather] = useState(null);
+  const [weather, setWeather] = useState<Weather[]>();
   //const [trips, setTrips] = useState(null);
 
   const buscarCiudad = () => {
