@@ -22,7 +22,7 @@ const Navbar = () => {
         <ul className="navbar-nav">
           <li className="nav-item px-3" style={{ textAlign: "center" }}>
             <button type='button' className="btn btn-light">
-              <Link to='/' >Trip Planner Board</Link>
+              <Link to='/clima' >Weather</Link>
             </button>
               </li>
               {

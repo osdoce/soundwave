@@ -1,7 +1,7 @@
 import weatherAPI from "../api/weatherAPI";
 //import { retrieveTrips } from "../api/tripAPI";
 import Busqueda from "./Busqueda";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Weather = () => {
   const [cuidadBuscada, setCiudadBuscada] = useState("");
