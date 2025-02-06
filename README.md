@@ -41,8 +41,10 @@ https://docs.google.com/presentation/d/1CnbhQddfaQfoGoiCOKsbBts_ndHmjU9B5w6lGX8B
 Image1 
 https://soundwave-bq7f.onrender.com/api2/users
 (soundwave/assets/image1.jpeg)
+https://raw.githubusercontent.com/osdoce/soundwave/refs/heads/main/soundwave/assets/image1.jpeg
 
 Image2 
 https://soundwave-bq7f.onrender.com/api2/users
 (soundwave/assets/image2.jpeg)
+https://raw.githubusercontent.com/osdoce/soundwave/refs/heads/main/soundwave/assets/image2.jpeg
 
