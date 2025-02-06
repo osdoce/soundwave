@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import App from "./App.tsx";
 import Weather from "./pages/Weather.tsx";
-import Board from "./pages/Board.tsx";
+//import Board from "./pages/Board.tsx";
 import ErrorPage from "./pages/ErrorPage.tsx";
 import EditTicket from "./pages/EditTrip.tsx";
 import CreateTicket from "./pages/CreateTrip.tsx";
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Board />,
+        element: <Weather />,
       },
       {
         path: "/edit",
